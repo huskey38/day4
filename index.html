@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>태양계 공전</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; font-family: "Malgun Gothic", sans-serif; }
+  canvas { display: block; }
+  #ui { position: fixed; left: 16px; top: 16px; color: #dfe8ff; font-size: 14px; line-height: 1.6;
+        background: rgba(10, 14, 30, .55); padding: 12px 14px; border-radius: 10px; backdrop-filter: blur(4px); }
+  #ui button { background: #243a6b; color: #fff; border: 0; padding: 6px 12px; border-radius: 6px; cursor: pointer; margin: 2px 4px 2px 0; font: inherit; }
+  #ui button:hover { background: #3a5aa0; }
+  #ui input[type=range] { width: 160px; vertical-align: middle; }
+  #label { position: fixed; right: 16px; bottom: 16px; color: #9fb4e8; font-size: 13px; }
+</style>
+</head>
+<body>
+<div id="ui">
+  <div><b>태양계 공전</b> (크기·거리는 보기 좋게 축소)</div>
+  <div>속도 <input id="speed" type="range" min="0" max="5" step="0.05" value="1"> <span id="sv">1.0x</span></div>
+  <div>
+    <button id="launch">🚀 지구→화성 발사</button>
+    <button id="follow">우주선 따라가기</button>
+    <button id="reset">시점 초기화</button>
+  </div>
+  <div id="status">대기 중</div>
+</div>
+<div id="label">마우스: 회전 · 휠: 확대/축소 · 우클릭 드래그: 이동</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module" src="main.js"></script>
+</body>
+</html>
